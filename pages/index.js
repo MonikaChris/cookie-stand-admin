@@ -1,7 +1,15 @@
 import Head from 'next/head';
+import { useState } from 'react';
 
 export default function Home() {
-    
+  const [cookieStand, createCookieStand] = useState('');
+
+  function createStandHandler(e) {
+      e.preventDefault();
+      console.log(`target: ${e.target.location.value}`)
+      const new_stand = {"location": e.target.location.value, "minCustomers": e.target.minCustomers.value, "maxCustomers": e.target.maxCustomers.value, "avgCookies": e.target.avgCookies.value};
+      createCookieStand(JSON.stringify(new_stand));
+  }
 
     return (
         <div>
@@ -12,7 +20,7 @@ export default function Home() {
                 <h1 className="text-4xl">Cookie Stand Admin</h1>
             </header>
             <main>
-                <form className="w-3/4 p-8 mx-auto my-10 bg-green-300 rounded h-60">
+                <form onSubmit={createStandHandler} className="w-3/4 p-8 mx-auto my-10 bg-green-300 rounded h-60">
                     
                     <div className="flex-col">
                     <h1 className="pb-4 text-2xl text-center">Create Cookie Stand</h1>
@@ -26,19 +34,19 @@ export default function Home() {
                     <div className="flex-col text-center">
                       <p>Minimum Customers</p>
                       <p>per Hour</p>
-                      <input name="min-customers" className="flex-auto pl-1"/>
+                      <input name="minCustomers" className="flex-auto pl-1"/>
                     </div>
 
                     <div className="flex-col text-center">
                       <p>Maximum Customers</p>
                       <p>Per Hour</p>
-                      <input name="max-customers" className="flex-auto pl-1"/>
+                      <input name="maxCustomers" className="flex-auto pl-1"/>
                     </div>
 
                     <div className="flex-col text-center">
                       <p>Average Cookies</p>
                       <p>per Sale</p>
-                      <input name="avg-sales" className="flex-auto pl-1"/>
+                      <input name="avgCookies" className="flex-auto pl-1"/>
                     </div>
 
                     <div>
@@ -46,7 +54,8 @@ export default function Home() {
                     </div>
                   </div>
                 </form>
-                <p className="text-center">Report Table Coming Soon...</p>
+                <p className="pb-8 text-center">Report Table Coming Soon...</p>
+                <p className="text-center">{cookieStand}</p>
             </main>
             <footer className="fixed bottom-0 w-full p-4 mt-8 bg-green-500">
                 <p className="">©2023</p>
