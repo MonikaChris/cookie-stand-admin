@@ -1,3 +1,11 @@
+## Cooke Stand Admin
+
+### About
+
+The Home page allows the user to create a cookie stand. Complete all form fields and click "Create." The data gets displayed on the page.
+
+## How to Run
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
