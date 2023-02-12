@@ -28,7 +28,7 @@ export default function CookieStandAdmin() {
                 <CreateForm createStand={createStand}/>
                 <ReportTable cookieStandList={stands}/>
             </main>
-            <Footer />
+            <Footer standNum={stands.length}/>
 
         </>
 
