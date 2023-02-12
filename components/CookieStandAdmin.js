@@ -6,14 +6,18 @@ import Footer from '../components/Footer'
 import { useState } from 'react';
 
 export default function CookieStandAdmin() {
-    // const [cookieStand, createCookieStand] = useState('');
-
-    // function createStandHandler(e) {
-    //     e.preventDefault();
-    //     console.log(`target: ${e.target.location.value}`)
-    //     const new_stand = {"location": e.target.location.value, "minCustomers": e.target.minCustomers.value, "maxCustomers": e.target.maxCustomers.value, "avgCookies": e.target.avgCookies.value};
-    //     createCookieStand(JSON.stringify(new_stand));
-    // }
+    const [stands, addStand] = useState([]);
+    
+    function createStand() {
+        console.log(`state: ${state}`)
+        const stand = {
+            location: 'Calexico',
+            hourly_sales: [48, 42, 30, 24, 42, 24, 36, 42, 42, 48, 36, 42, 24, 36],
+            id: stands.length + 1
+        };
+        
+        addStand([...stands, stand]);
+    }
     
     return (
         <>
@@ -22,8 +26,8 @@ export default function CookieStandAdmin() {
             </Head>
             <Header />
             <main>
-                <CreateForm />
-                <ReportTable />
+                <CreateForm createStand={createStand}/>
+                <ReportTable cookieStandList={stands}/>
             </main>
             <Footer />
 

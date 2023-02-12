@@ -1,6 +1,13 @@
-export default function CreateForm({ createStandHandler }) {
+export default function CreateForm({ createStand }) {
+    
+    function handleSubmit(e){
+        //e.preventDefault();
+        createStand();
+        e.target.reset();
+    }
+
     return (
-        <form className="w-3/4 p-8 mx-auto my-10 bg-green-300 rounded h-60">
+        <form onSubmit='handleSubmit' className="w-3/4 p-8 mx-auto my-10 bg-green-300 rounded h-60">
                     
                     <div className="flex-col">
                     <h1 className="pb-4 text-2xl text-center">Create Cookie Stand</h1>
