@@ -2,13 +2,25 @@ import { hours } from '../data';
 
 export default function ReportTable(props) {
     const { cookieStandList } = props
+    const hour_idx = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    let total_of_totals = 0
     
-    function getTotal(arr) {
+    function getRowTotal(arr) {
         let total_sum = 0;
         for (let num of arr) {
             total_sum += num
         }
+        // Updates total total for final table entry
+        total_of_totals += total_sum
         return total_sum;
+    }
+
+    function getColTotal(idx) {
+        let total_sum = 0;
+        for (let stand of cookieStandList) {
+            total_sum += stand.hourly_sales[idx]
+        }
+        return total_sum
     }
     
     if (cookieStandList.length === 0) {
@@ -34,9 +46,19 @@ export default function ReportTable(props) {
                             {stand.hourly_sales.map( hour => (
                                 <td key={hour}>{hour}</td>
                             ))}
-                            <td>{getTotal(stand.hourly_sales)}</td>
+                            <td>{getRowTotal(stand.hourly_sales)}</td>
                         </tr>)
                     ))}
+
+                    <tr>
+                        <td>Totals</td>
+                        {hour_idx.map(idx => (
+                            <td key={idx}>{getColTotal(idx)}</td>
+                        ))}
+                        <td>{total_of_totals}</td>
+                    </tr>
+
+
                     
                 </tbody>
             </table>
