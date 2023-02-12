@@ -9,7 +9,6 @@ export default function CookieStandAdmin() {
     const [stands, addStand] = useState([]);
     
     function createStand() {
-        console.log(`state: ${state}`)
         const stand = {
             location: 'Calexico',
             hourly_sales: [48, 42, 30, 24, 42, 24, 36, 42, 42, 48, 36, 42, 24, 36],
