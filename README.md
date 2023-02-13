@@ -2,7 +2,7 @@
 
 ### About
 
-The Home page allows the user to create a cookie stand. Complete all form fields and click "Create." The data gets displayed on the page.
+The Home page allows the user to create a cookie stand. Complete all form fields and click "Create." Currently, dummy data gets displayed in a table below the form. Keep clicking create to see more table entries. The row and column totals are calculated and displayed.
 
 ## How to Run
 
