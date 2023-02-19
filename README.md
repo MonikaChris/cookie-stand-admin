@@ -1,4 +1,4 @@
-## Cooke Stand Admin
+## Cookie Stand Admin
 
 ### About
 

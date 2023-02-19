@@ -2,7 +2,6 @@ export default function CreateForm({ createStand }) {
     
     function handleSubmit(e){
         e.preventDefault();
-        console.log('ran')
         createStand();
         e.target.reset();
     }
