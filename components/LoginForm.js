@@ -6,15 +6,14 @@ export default function LoginForm({ onLogin }) {
   }
 
   return (
-      <form onSubmit={handleSubmit}>
-          <fieldset autoComplete='off'>
-              <legend>Log In</legend>
-              <label htmlFor="username">Username</label>
+      <form className="flex flex-col justify-between w-3/4 p-8 mx-auto my-10 text-center bg-green-300 border-2 border-green-500 rounded h-60" onSubmit={handleSubmit}>
+              
+              <label htmlFor="username">USERNAME</label>
               <input name="username" />
-              <label htmlFor="password">Password</label>
+              <label htmlFor="password">PASSWORD</label>
               <input type="password" name="password" />
-              <button>Log In</button>
-          </fieldset>
+              <button className="py-2 mt-6 bg-green-500 rounded">SIGN IN</button>
+              
       </form>
   );
 }

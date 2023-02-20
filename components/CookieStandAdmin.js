@@ -36,6 +36,7 @@ export default function CookieStandAdmin() {
         <>
             <Head>
                 <title>Cookie Stand Admin</title>
+                <button></button>
             </Head>
             <Header />
             <main>
