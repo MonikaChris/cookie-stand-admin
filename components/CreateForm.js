@@ -1,8 +1,20 @@
+import { useAuth } from '../contexts/auth';
+import useResource from '../hooks/useResource';
+
 export default function CreateForm({ createStand }) {
+    const { user } = useAuth();
+    const { createResource } = useResource();
     
     function handleSubmit(e){
         e.preventDefault();
-        createStand();
+        const info = {
+          location: e.target.location.value,
+          minimum_customers_per_hour: parseInt(e.target.minCustomers.value),
+          maximum_customers_per_hour: parseInt(e.target.maxCustomers.value),
+          average_cookies_per_sale: parseFloat(e.target.avgCookies.value),
+          owner: user.id,
+      };
+        createResource(info);
         e.target.reset();
     }
 

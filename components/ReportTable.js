@@ -1,7 +1,10 @@
 import { hours } from '../data';
 
-export default function ReportTable(props) {
-    const { cookieStandList } = props
+
+export default function ReportTable({ cookieStandList }) {
+    // deleted props parameter passed into function
+    //const { cookieStandList } = props
+
     const hour_idx = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
     let total_of_totals = 0
     
@@ -50,7 +53,7 @@ export default function ReportTable(props) {
                         </tr>)
                     ))}
 
-                    <tr className="text-center font-bold bg-green-400">
+                    <tr className="font-bold text-center bg-green-400">
                         <td className="border border-black">Totals</td>
                         {hour_idx.map(idx => (
                             <td className="border border-black" key={idx}>{getColTotal(idx)}</td>
