@@ -28,9 +28,8 @@ export default function CookieStandAdmin() {
         
     // }
 
-    const { resources } = useResource();
+    const { resources, deleteResource } = useResource();
 
-    console.log(`resources1: ${resources}`)
     console.log(`resources: ${JSON.stringify(resources)}`)
     
     return (
@@ -41,7 +40,7 @@ export default function CookieStandAdmin() {
             <Header />
             <main>
                 <CreateForm />
-                <ReportTable cookieStandList={resources || []}/>
+                <ReportTable cookieStandList={resources || []} deleteStand={deleteResource}/>
             </main>
             <Footer standNum={resources ? resources.length : 0}/>
 

@@ -1,7 +1,8 @@
 import { hours } from '../data';
+import TrashIcon from './TrashIcon';
 
 
-export default function ReportTable({ cookieStandList }) {
+export default function ReportTable({ cookieStandList, deleteStand }) {
     // deleted props parameter passed into function
     //const { cookieStandList } = props
 
@@ -25,6 +26,10 @@ export default function ReportTable({ cookieStandList }) {
         }
         return total_sum
     }
+
+    function handleDelete(id) {
+        deleteStand(id);
+    }
     
     if (cookieStandList.length === 0) {
         return (
@@ -32,33 +37,33 @@ export default function ReportTable({ cookieStandList }) {
         );
     } else {
         return (
-            <table className="w-1/2 mx-auto my-4 border">
+            <table className="w-3/4 mx-auto my-4 text-center">
                 <thead>
-                    <tr className="text-center bg-green-400">
-                        <th>Location</th>
+                    <tr className="bg-green-400">
+                        <th className="border border-green-600">Location</th>
                         {hours.map(item => (
-                            <th key={item}>{item}</th>
+                            <th className="border border-green-600" key={item}>{item}</th>
                         ))}
-                        <th className="">Totals</th>
+                        <th className="border border-green-600">Totals</th>
                     </tr>
                 </thead>
                 <tbody>
                     {cookieStandList.map(stand => (
                         (<tr className="even:bg-green-100 odd:bg-green-300" key={stand.id}>
-                            <td className="border border-black">{stand.location}</td>
+                            <td className="flex items-center justify-between px-2 border border-green-600">{stand.location} <TrashIcon onClick={(e) => handleDelete(stand.id, e)} className="h-4"/></td>
                             {stand.hourly_sales.map( hour => (
-                                <td className="border border-black" key={hour}>{hour}</td>
+                                <td className="border border-green-600" key={hour}>{hour}</td>
                             ))}
-                            <td className="border border-black">{getRowTotal(stand.hourly_sales)}</td>
+                            <td className="border border-green-600">{getRowTotal(stand.hourly_sales)}</td>
                         </tr>)
                     ))}
 
-                    <tr className="font-bold text-center bg-green-400">
-                        <td className="border border-black">Totals</td>
+                    <tr className="font-bold bg-green-400">
+                        <td className="border border-green-600">Totals</td>
                         {hour_idx.map(idx => (
-                            <td className="border border-black" key={idx}>{getColTotal(idx)}</td>
+                            <td className="border border-green-600" key={idx}>{getColTotal(idx)}</td>
                         ))}
-                        <td className="border border-black">{total_of_totals}</td>
+                        <td className="border border-green-600">{total_of_totals}</td>
                     </tr>
                     
                 </tbody>
