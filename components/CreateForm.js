@@ -19,38 +19,38 @@ export default function CreateForm({ createStand }) {
     }
 
     return (
-        <form onSubmit={handleSubmit} className="w-3/4 p-8 mx-auto my-10 bg-green-300 border-2 border-green-500 rounded h-60">
+        <form onSubmit={handleSubmit} className="w-3/4 p-8 mx-auto my-10 bg-green-300 border-2 border-green-500 rounded h-50">
                     
-                    <div className="flex-col">
-                    <h1 className="pb-4 text-2xl text-center">Create Cookie Stand</h1>
+                    <div className="flex justify-around">
+                      <div className="flex flex-col">
+                        <p className="text-center">Location</p>
+                        <input name="location" className="mb-4 w-96"/>
+                      </div>
 
-                    <label className="px-2"for="location">Location</label>
-                    <input name="location" className="w-5/6"/>
+                    <button className="px-12 py-2 mb-4 text-black bg-green-500 rounded">Create</button>
                     </div>
+                    
 
-                  <div className="flex justify-between mt-8">
+                  <div className="flex justify-around mt-8">
                     
                     <div className="flex-col text-center">
-                      <p>Minimum Customers</p>
-                      <p>per Hour</p>
-                      <input name="minCustomers" className="flex-auto pl-1"/>
+                      <p>Minimum Customers per Hour</p>
+                      <input name="minCustomers" className="w-64"/>
                     </div>
 
                     <div className="flex-col text-center">
-                      <p>Maximum Customers</p>
-                      <p>Per Hour</p>
-                      <input name="maxCustomers" className="flex-auto pl-1"/>
+                      <p>Maximum Customers Per Hour</p>
+                      <input name="maxCustomers" className="w-64"/>
                     </div>
 
                     <div className="flex-col text-center">
-                      <p>Average Cookies</p>
-                      <p>per Sale</p>
-                      <input name="avgCookies" className="flex-auto pl-1"/>
+                      <p>Average Cookies per Sale</p>
+                      <input name="avgCookies" className="w-64"/>
                     </div>
 
-                    <div>
-                      <button className="px-12 py-8 text-black bg-green-500">Create</button>
-                    </div>
+                    
+                      
+                    
                   </div>
                 </form>
     );
