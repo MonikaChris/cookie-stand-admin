@@ -23,28 +23,28 @@ export default function CreateForm({ createStand }) {
                     
                     <div className="flex justify-around">
                       <div className="flex flex-col">
-                        <p className="text-center">Location</p>
+                        <p className="text-center">LOCATION</p>
                         <input name="location" className="mb-4 w-96"/>
                       </div>
 
-                    <button className="px-12 py-2 mb-4 text-black bg-green-500 rounded">Create</button>
+                    <button className="px-12 py-2 mb-4 text-black bg-green-500 rounded">CREATE STAND</button>
                     </div>
                     
 
                   <div className="flex justify-around mt-8">
                     
                     <div className="flex-col text-center">
-                      <p>Minimum Customers per Hour</p>
+                      <p>MINIMUM CUSTOMERS PER HOUR</p>
                       <input name="minCustomers" className="w-64"/>
                     </div>
 
                     <div className="flex-col text-center">
-                      <p>Maximum Customers Per Hour</p>
+                      <p>MAXIMUM CUSTOMERS PER HOUR</p>
                       <input name="maxCustomers" className="w-64"/>
                     </div>
 
                     <div className="flex-col text-center">
-                      <p>Average Cookies per Sale</p>
+                      <p>AVERAGE COOKIES PER SALE</p>
                       <input name="avgCookies" className="w-64"/>
                     </div>
 

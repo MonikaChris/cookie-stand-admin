@@ -3,9 +3,7 @@ import TrashIcon from './TrashIcon';
 
 
 export default function ReportTable({ cookieStandList, deleteStand }) {
-    // deleted props parameter passed into function
-    //const { cookieStandList } = props
-
+    
     const hour_idx = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
     let total_of_totals = 0
     
