@@ -10,7 +10,7 @@ export default function CookieStandAdmin() {
     
     const { resources, deleteResource } = useResource();
 
-    console.log(`resources: ${JSON.stringify(resources)}`)
+    //console.log(`resources: ${JSON.stringify(resources)}`)
     
     return (
         <>

@@ -1,5 +1,6 @@
 import { hours } from '../data';
 import TrashIcon from './TrashIcon';
+import { v4 as uuidv4 } from 'uuid';
 
 
 export default function ReportTable({ cookieStandList, deleteStand }) {
@@ -39,8 +40,8 @@ export default function ReportTable({ cookieStandList, deleteStand }) {
                 <thead>
                     <tr className="bg-green-400">
                         <th className="border border-green-600">Location</th>
-                        {hours.map(item => (
-                            <th className="border border-green-600" key={item}>{item}</th>
+                        {hours.map((hour,idx) => (
+                            <th className="border border-green-600" key={idx}>{hour}</th>
                         ))}
                         <th className="border border-green-600">Totals</th>
                     </tr>
@@ -49,8 +50,8 @@ export default function ReportTable({ cookieStandList, deleteStand }) {
                     {cookieStandList.map(stand => (
                         (<tr className="even:bg-green-100 odd:bg-green-300" key={stand.id}>
                             <td className="flex items-center justify-between px-2 border border-green-600">{stand.location} <TrashIcon onClick={(e) => handleDelete(stand.id, e)} className="h-4"/></td>
-                            {stand.hourly_sales.map( hour => (
-                                <td className="border border-green-600" key={hour}>{hour}</td>
+                            {stand.hourly_sales.map(sale => (
+                                <td className="border border-green-600" key={uuidv4()}>{sale}</td>
                             ))}
                             <td className="border border-green-600">{getRowTotal(stand.hourly_sales)}</td>
                         </tr>)
@@ -59,7 +60,7 @@ export default function ReportTable({ cookieStandList, deleteStand }) {
                     <tr className="font-bold bg-green-400">
                         <td className="border border-green-600">Totals</td>
                         {hour_idx.map(idx => (
-                            <td className="border border-green-600" key={idx}>{getColTotal(idx)}</td>
+                            <td className="border border-green-600" key={uuidv4()}>{getColTotal(idx)}</td>
                         ))}
                         <td className="border border-green-600">{total_of_totals}</td>
                     </tr>
